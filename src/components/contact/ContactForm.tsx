@@ -56,8 +56,7 @@ const ContactForm = () => {
       setSubmitStatus({
         type: 'success',
         message: 'Thank you! Your message has been sent successfully.',
-      });
-    } catch (error) {
+      });    } catch (err) {
       // Show error message
       setSubmitStatus({
         type: 'error',

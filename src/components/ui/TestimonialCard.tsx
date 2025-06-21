@@ -1,17 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import { FaQuoteLeft } from 'react-icons/fa';
 
 interface TestimonialCardProps {
   quote: string;
   author: string;
   position: string;
-  image: string;
+  image?: string; // Making this optional since it's not used
   index: number;
 }
 
-const TestimonialCard = ({ quote, author, position, image, index }: TestimonialCardProps) => {
+const TestimonialCard = ({ quote, author, position, index }: TestimonialCardProps) => {
 
   return (
     <motion.div 

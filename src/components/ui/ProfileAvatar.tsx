@@ -24,12 +24,14 @@ const ProfileAvatar: React.FC<ProfileAvatarProps> = ({
     lg: { width: 220, height: 220, textSize: 'text-5xl', borderWidth: 'border-4' },
     xl: { width: 320, height: 320, textSize: 'text-7xl', borderWidth: 'border-4' },
   };
-
+  // Style classes are defined directly inline where used
+  /* Previously used styleClasses object:
   const styleClasses = {
     gradient: "bg-gradient-to-br from-primary to-secondary border-white",
     solid: "bg-primary border-white",
     glow: "bg-white border-primary/30"
   };
+  */
 
   const { width, height, textSize, borderWidth } = dimensions[size];
 

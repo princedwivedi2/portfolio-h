@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import SectionHeading from '@/components/ui/SectionHeading';
-import { FaLinkedinIn, FaTwitter, FaEnvelope, FaMapMarkerAlt, FaPhone } from 'react-icons/fa';
+import { FaLinkedinIn, FaEnvelope, FaMapMarkerAlt, FaPhone } from 'react-icons/fa';
 import ContactForm from '@/components/contact/ContactForm';
 
 export default function Contact() {

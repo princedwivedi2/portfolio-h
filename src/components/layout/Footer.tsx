@@ -2,18 +2,17 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { FaLinkedinIn, FaTwitter, FaEnvelope, FaHeart } from 'react-icons/fa';
+import { FaLinkedinIn, FaEnvelope, FaHeart } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-
   const footerAnimation = {
     hidden: { y: 20, opacity: 0 },
     visible: { 
       y: 0, 
       opacity: 1,
-      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as any }
+      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
     }
   };
 
