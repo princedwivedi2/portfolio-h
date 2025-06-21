@@ -1,10 +1,12 @@
-'use client';
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import SectionHeading from '@/components/ui/SectionHeading';
 import { FaLinkedinIn, FaTwitter, FaEnvelope, FaMapMarkerAlt, FaPhone } from 'react-icons/fa';
-import ContactForm from '@/components/contact/ContactForm';
+
+export const metadata = {
+  title: 'Contact | Swati - HR Professional',
+  description: 'Get in touch with Swati for HR consultations, project inquiries, or professional connections.',
+};
 
 export default function Contact() {
   return (
@@ -15,8 +17,66 @@ export default function Contact() {
         centered={true}
       />
       
-      <div className="grid md:grid-cols-2 gap-12 mt-16">        {/* Contact Form */}
-        <ContactForm />
+      <div className="grid md:grid-cols-2 gap-12 mt-16">
+        {/* Contact Form */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <form className="bg-white rounded-lg shadow-md p-8">
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">Send Me a Message</h2>
+            
+            <div className="mb-6">
+              <label htmlFor="name" className="block text-gray-700 mb-2">Your Name</label>
+              <input 
+                type="text" 
+                id="name" 
+                className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50" 
+                placeholder="John Doe"
+                required
+              />
+            </div>
+            
+            <div className="mb-6">
+              <label htmlFor="email" className="block text-gray-700 mb-2">Email Address</label>
+              <input 
+                type="email" 
+                id="email" 
+                className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50" 
+                placeholder="john@example.com"
+                required
+              />
+            </div>
+            
+            <div className="mb-6">
+              <label htmlFor="subject" className="block text-gray-700 mb-2">Subject</label>
+              <input 
+                type="text" 
+                id="subject" 
+                className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50" 
+                placeholder="How can I help you?"
+              />
+            </div>
+            
+            <div className="mb-6">
+              <label htmlFor="message" className="block text-gray-700 mb-2">Message</label>
+              <textarea 
+                id="message" 
+                className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 h-36" 
+                placeholder="Your message here..."
+                required
+              ></textarea>
+            </div>
+            
+            <button 
+              type="submit" 
+              className="w-full bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 rounded-lg font-medium hover:shadow-lg transition-shadow duration-300"
+            >
+              Send Message
+            </button>
+          </form>
+        </motion.div>
         
         {/* Contact Information */}
         <motion.div
@@ -31,9 +91,10 @@ export default function Contact() {
               <div className="flex items-start">
                 <div className="bg-primary/10 p-3 rounded-full mr-4">
                   <FaEnvelope className="text-primary w-5 h-5" />
-                </div>                <div>
+                </div>
+                <div>
                   <h3 className="font-medium text-gray-700 mb-1">Email</h3>
-                  <a href="mailto:rajputswatisingh78@gmail.com" className="text-primary hover:underline">rajputswatisingh78@gmail.com</a>
+                  <a href="mailto:swati@example.com" className="text-primary hover:underline">swati@example.com</a>
                 </div>
               </div>
               
@@ -43,7 +104,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="font-medium text-gray-700 mb-1">Phone</h3>
-                  <a href="tel:+919076646400" className="text-primary hover:underline">+91 90766 46400</a>
+                  <a href="tel:+911234567890" className="text-primary hover:underline">+91 123 456 7890</a>
                 </div>
               </div>
               
@@ -60,8 +121,9 @@ export default function Contact() {
             
             <div className="mt-10">
               <h3 className="font-medium text-gray-700 mb-4">Connect with me</h3>
-              <div className="flex space-x-4">                <a 
-                  href="https://linkedin.com/in/swati-singh-36b2a1280" 
+              <div className="flex space-x-4">
+                <a 
+                  href="https://linkedin.com" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="bg-white p-3 rounded-full shadow hover:shadow-md transition-shadow duration-200"
@@ -70,14 +132,16 @@ export default function Contact() {
                   <FaLinkedinIn className="text-primary w-6 h-6" />
                 </a>
                 <a 
-                  href="tel:+919076646400" 
+                  href="https://twitter.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
                   className="bg-white p-3 rounded-full shadow hover:shadow-md transition-shadow duration-200"
-                  aria-label="Phone"
+                  aria-label="Twitter"
                 >
-                  <FaPhone className="text-primary w-6 h-6" />
+                  <FaTwitter className="text-primary w-6 h-6" />
                 </a>
                 <a 
-                  href="mailto:rajputswatisingh78@gmail.com" 
+                  href="mailto:swati@example.com" 
                   className="bg-white p-3 rounded-full shadow hover:shadow-md transition-shadow duration-200"
                   aria-label="Email"
                 >
@@ -87,22 +151,23 @@ export default function Contact() {
             </div>
             
             <div className="mt-10">
-              <h3 className="font-medium text-gray-700 mb-4">Available for</h3>              <ul className="space-y-2">
+              <h3 className="font-medium text-gray-700 mb-4">Available for</h3>
+              <ul className="space-y-2">
                 <li className="flex items-center text-gray-600">
                   <span className="w-2 h-2 bg-primary rounded-full mr-2"></span>
-                  Student Training Coordination
+                  HR Consulting
                 </li>
                 <li className="flex items-center text-gray-600">
                   <span className="w-2 h-2 bg-primary rounded-full mr-2"></span>
-                  Career Guidance Workshops
+                  Workshop Facilitation
                 </li>
                 <li className="flex items-center text-gray-600">
                   <span className="w-2 h-2 bg-primary rounded-full mr-2"></span>
-                  Tech Seminar Facilitation
+                  Speaking Engagements
                 </li>
                 <li className="flex items-center text-gray-600">
                   <span className="w-2 h-2 bg-primary rounded-full mr-2"></span>
-                  HR & Recruitment Consulting
+                  HR Project Management
                 </li>
               </ul>
             </div>
@@ -120,22 +185,23 @@ export default function Contact() {
       >
         <h2 className="text-2xl font-bold text-gray-800 text-center mb-8">Frequently Asked Questions</h2>
         
-        <div className="grid md:grid-cols-2 gap-6">          {[
+        <div className="grid md:grid-cols-2 gap-6">
+          {[
             {
-              question: "What types of training programs do you coordinate?",
-              answer: "I specialize in coordinating summer training programs for students interested in technology careers, including PHP development, web design, and other IT disciplines. These programs provide hands-on experience and industry exposure."
+              question: "What types of HR projects do you work on?",
+              answer: "I specialize in a wide range of HR projects including recruitment strategies, employee engagement programs, performance management systems, and HR policy development for IT companies."
             },
             {
-              question: "How do you help students with placement?",
-              answer: "I organize placement drives, conduct mock interviews, provide resume workshops, and maintain relationships with tech companies looking for fresh talent. My goal is to prepare students thoroughly for their entry into the professional world."
+              question: "Do you offer consulting services?",
+              answer: "Yes, I provide HR consulting services to organizations looking to improve their human resource practices, particularly in the technology sector."
             },
             {
-              question: "Do you work with educational institutions?",
-              answer: "Yes, I build partnerships with colleges and training institutes to create pathways for students into tech careers. These collaborations include guest lectures, workshops, and coordinated placement activities."
+              question: "How quickly do you respond to inquiries?",
+              answer: "I aim to respond to all inquiries within 24-48 hours during business days."
             },
             {
-              question: "Can you help with internship opportunities?",
-              answer: "Absolutely! I coordinate internship programs between students and tech companies, ensuring both parties benefit from the arrangement. I've successfully placed many students in internship positions that led to full-time employment."
+              question: "Can you help with specific HR challenges in tech companies?",
+              answer: "Absolutely! With my experience in the IT sector, I have a deep understanding of the unique HR challenges tech companies face and can provide tailored solutions."
             }
           ].map((faq, index) => (
             <motion.div 

@@ -1,57 +1,57 @@
 export const projects = [
   {
     id: 1,
-    title: "Remote Work Policy Implementation",
-    description: "Developed and implemented a comprehensive remote work policy during the pandemic, ensuring business continuity while prioritizing employee well-being",
+    title: "Summer Training Program 2025",
+    description: "Organized and managed a comprehensive summer training program for students interested in technology careers, providing hands-on experience and mentorship",
     achievements: [
-      "Transitioned 200+ employees to remote work within two weeks",
-      "Created guidelines and resources to support managers and employees",
-      "Maintained 95% productivity levels during transition"
+      "Coordinated training for 150+ students across various technical disciplines",
+      "Partnered with 10+ tech companies for live project support",
+      "Achieved 85% positive feedback from participating students"
     ],
-    year: "2020"
+    year: "2025"
   },
   {
     id: 2,
-    title: "Employee Wellness Program",
-    description: "Designed and launched a holistic employee wellness program focusing on mental health, physical well-being, and work-life balance",
+    title: "Student Placement Drive",
+    description: "Led multiple placement drives to connect talented students with tech companies, facilitating interviews and preparation sessions",
     achievements: [
-      "Reduced stress-related leave by 30%",
-      "Improved employee satisfaction scores by 25%",
-      "Won 'Best Workplace Wellness Initiative' award"
+      "Successfully placed 80+ students in various IT companies",
+      "Organized mock interviews and resume workshops",
+      "Maintained relationships with hiring companies for future placement opportunities"
     ],
-    year: "2021"
+    year: "2024-2025"
   },
   {
     id: 3,
-    title: "Diversity & Inclusion Initiative",
-    description: "Spearheaded a company-wide diversity and inclusion initiative to foster a more inclusive workplace culture and attract diverse talent",
+    title: "Virtual Recruitment Process Implementation",
+    description: "Developed and implemented a comprehensive virtual recruitment process during the pandemic, ensuring continuity of hiring operations",
     achievements: [
-      "Increased diversity in leadership positions by 40%",
-      "Implemented unconscious bias training for all hiring managers",
-      "Created employee resource groups to support underrepresented groups"
+      "Coordinated virtual hiring for multiple positions",
+      "Managed remote candidate engagement and onboarding",
+      "Optimized job portal management and resume screening processes"
     ],
-    year: "2022"
+    year: "2024"
   },
   {
     id: 4,
-    title: "Performance Management System Overhaul",
-    description: "Redesigned the company's performance review system to focus on continuous feedback and development rather than annual reviews",
+    title: "Tech Career Seminar Series",
+    description: "Organized a series of tech career seminars and guidance sessions for students preparing to enter the IT industry",
     achievements: [
-      "Replaced annual reviews with quarterly check-ins and ongoing feedback",
-      "Developed a new competency framework aligned with company values",
-      "Improved employee satisfaction with performance processes by 60%"
+      "Conducted workshops covering industry trends, interview preparation, and career paths",
+      "Invited industry professionals as guest speakers",
+      "Provided personalized career counseling to 50+ students"
     ],
     year: "2023"
   },
   {
     id: 5,
-    title: "Talent Acquisition Strategy",
-    description: "Developed and implemented a strategic talent acquisition plan to meet aggressive growth targets in a competitive tech market",
+    title: "Internship Management Program",
+    description: "Designed and implemented a structured internship program connecting students with real-world work experiences in tech companies",
     achievements: [
-      "Reduced time-to-hire by 35% for technical roles",
-      "Increased candidate quality scores by 40%",
-      "Built relationships with universities and coding bootcamps for pipeline development"
+      "Coordinated PHP internships for students interested in web development",
+      "Created evaluation frameworks for interns and mentors",
+      "Established feedback mechanisms to continuously improve the program"
     ],
-    year: "2024"
+    year: "2023"
   }
 ];

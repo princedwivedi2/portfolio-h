@@ -1,88 +1,73 @@
-'use client';
-
 import React from 'react';
 import { motion } from 'framer-motion';
+import MainLayout from '@/components/layout/MainLayout';
 import SectionHeading from '@/components/ui/SectionHeading';
 import { bio } from '@/data/bio';
 import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa';
-import ProfileAvatar from '@/components/ui/ProfileAvatar';
 
 export default function Home() {
   return (
-    <>      {/* Hero Section */}
-      <section className="py-20 md:py-28">
+    <MainLayout>
+      {/* Hero Section */}
+      <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row-reverse items-center justify-between gap-16">            
+          <div className="flex flex-col lg:flex-row-reverse items-center justify-between gap-12">
             {/* Image */}
             <motion.div 
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
               className="lg:w-2/5"
-              initial={{ opacity: 0, scale: 0.8, x: 30 }}
-              animate={{ opacity: 1, scale: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
             >
-              <div className="relative">
-                <div className="absolute inset-0 -z-10 bg-gradient-to-tr from-softPurple to-softPink rounded-full blur-xl opacity-30 animate-pulse" />
-                <ProfileAvatar 
-                  size="xl" 
-                  // When you have an actual image, uncomment and provide the path:
-                  // imageUrl="/images/profile.jpg" 
-                />
+              <div className="relative w-64 h-64 md:w-80 md:h-80 mx-auto">
+                {/* Decorative background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-full opacity-20 blur-xl" />
+                
+                {/* Profile image placeholder - should be replaced with an actual image */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/80 to-secondary/80 rounded-full overflow-hidden flex items-center justify-center">
+                  <span className="text-7xl text-white font-bold">S</span>
+                </div>
               </div>
             </motion.div>
 
             {/* Content */}
-            <div className="lg:w-3/5 space-y-6">
-              <motion.span 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="text-primary text-lg font-medium inline-block px-4 py-1 rounded-full bg-primary/5 border border-primary/10"
-              >
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="lg:w-3/5"
+            >
+              <span className="text-primary text-lg font-medium mb-4 block">
                 {bio.welcomeMessage}
-              </motion.span>
-                <motion.h1 
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="text-4xl md:text-6xl font-bold text-gray-800 dark:text-gray-100 leading-tight"
-              >
+              </span>
+              <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-6">
                 {bio.intro}
-              </motion.h1>
-                <motion.p 
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl"
-              >
+              </h1>
+              <p className="text-xl text-gray-600 mb-8 max-w-2xl">
                 {bio.description}
-              </motion.p><motion.div 
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                className="flex flex-wrap gap-4 pt-4"
-              >
-                <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-                  <Link 
-                    href="/about" 
-                    className="bg-gradient-to-r from-primary to-secondary text-white px-8 py-3 rounded-xl font-medium shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 flex items-center gap-2"
-                  >
-                    Learn More <FaArrowRight className="w-4 h-4" />
-                  </Link>
-                </motion.div>
-                <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>                  <Link 
-                    href="/contact" 
-                    className="bg-white dark:bg-neutral-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 px-8 py-3 rounded-xl font-medium shadow-sm hover:shadow-md transition-all duration-300"
-                  >
-                    Get in Touch
-                  </Link>
-                </motion.div>
-              </motion.div>
-            </div>
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link 
+                  href="/about" 
+                  className="bg-gradient-to-r from-primary to-secondary text-white px-8 py-3 rounded-lg font-medium hover:shadow-lg transition-shadow duration-300 flex items-center gap-2"
+                >
+                  Learn More <FaArrowRight className="w-4 h-4" />
+                </Link>
+                <Link 
+                  href="/contact" 
+                  className="bg-white border border-gray-300 text-gray-700 px-8 py-3 rounded-lg font-medium hover:shadow-lg transition-shadow duration-300"
+                >
+                  Get in Touch
+                </Link>
+              </div>
+            </motion.div>
           </div>
         </div>
-      </section>      {/* Highlight Stats */}
-      <section className="py-16 bg-gray-50 dark:bg-neutral-800">
+      </section>
+
+      {/* Highlight Stats */}
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
@@ -102,7 +87,7 @@ export default function Home() {
                 <h3 className="text-4xl md:text-5xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary inline-block">
                   {stat.value}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300">{stat.label}</p>
+                <p className="text-gray-600">{stat.label}</p>
               </motion.div>
             ))}
           </div>
@@ -206,6 +191,6 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-    </>
+    </MainLayout>
   );
 }

@@ -4,6 +4,9 @@ import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
+// Note: metadata is imported from metadata-not-found.ts file
+// We can't export metadata from this client component
+
 export default function NotFound() {
   return (
     <div className="container mx-auto py-16 md:py-24 px-4 text-center">

@@ -73,9 +73,8 @@ const ContactForm = () => {
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.6 }}
-    >
-      <form 
-        className="bg-white rounded-lg shadow-md p-8"
+    >      <form 
+        className="bg-white dark:bg-neutral-800 rounded-lg shadow-md p-8"
         onSubmit={handleSubmit}
       >
         <h2 className="text-2xl font-bold text-gray-800 mb-6">Send Me a Message</h2>

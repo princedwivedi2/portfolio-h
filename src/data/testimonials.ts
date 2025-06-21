@@ -1,37 +1,37 @@
 export const testimonials = [
   {
     id: 1,
-    quote: "Swati has been instrumental in transforming our company culture. Her employee engagement initiatives have significantly improved team morale and productivity.",
+    quote: "Swati Singh has been instrumental in coordinating our summer training program. Her dedication to student development and ability to build industry partnerships has made a huge difference in our placement success rates.",
     author: "Rahul Sharma",
-    position: "CTO, TechSolutions Inc.",
+    position: "Director, Softflew Technologies",
     image: "/testimonial-1.jpg" // Placeholder - we'll need to add actual images later
   },
   {
     id: 2,
-    quote: "Working with Swati on our diversity and inclusion program has been a game-changer. Her vision and strategic approach have helped us build a truly inclusive workplace.",
+    quote: "As a student who participated in Swati's training coordination program, I can attest to her exceptional ability to bridge the gap between academia and industry requirements. Her mentorship was invaluable in securing my first tech job.",
     author: "Priya Patel",
-    position: "CEO, InnovateX",
+    position: "Former Student, Now Software Developer",
     image: "/testimonial-2.jpg" // Placeholder
   },
   {
     id: 3,
-    quote: "Swati completely transformed our onboarding process. New hires are now productive faster and have a much smoother transition into the company.",
+    quote: "Swati's organizational skills and attention to detail made our recruitment process seamless, even in a remote environment. Her ability to identify and engage with quality candidates is remarkable.",
     author: "Amit Kumar",
-    position: "Engineering Manager, TechSolutions Inc.",
+    position: "HR Director, Fresh Duniya Manpower Services",
     image: "/testimonial-3.jpg" // Placeholder
   },
   {
     id: 4,
-    quote: "As someone who was recruited by Swati, I can say that her approach to talent acquisition is exceptional. She truly understands both the technical requirements and cultural fit.",
+    quote: "The mock interview sessions and resume workshops conducted by Swati were eye-opening. Her guidance helped me completely transform my approach to job hunting and successfully land a position in the tech industry.",
     author: "Neha Singh",
-    position: "Senior Developer, TechSolutions Inc.",
+    position: "Recent Graduate, Placed through Swati's efforts",
     image: "/testimonial-4.jpg" // Placeholder
   },
   {
     id: 5,
-    quote: "Swati's implementation of our performance review system has changed how we approach employee development. It's now a constructive process that everyone values.",
+    quote: "Working with Swati to coordinate internship placements for our company has been a pleasure. She thoroughly understands our requirements and consistently connects us with well-prepared, motivated students who add value to our projects.",
     author: "Vikram Desai",
-    position: "Product Director, Global IT Solutions",
+    position: "Technical Lead, Digicoders Technologies",
     image: "/testimonial-5.jpg" // Placeholder
   }
 ];

@@ -1,93 +1,139 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
-import { FaLinkedinIn, FaTwitter, FaEnvelope } from 'react-icons/fa';
+import { FaLinkedinIn, FaTwitter, FaEnvelope, FaHeart } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
+  const footerAnimation = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { 
+      y: 0, 
+      opacity: 1,
+      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as any }
+    }
+  };
+
+  const staggerItems = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemAnimation = {
+    hidden: { opacity: 0, y: 10 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+  };
   return (
-    <footer className="bg-gray-50 py-12 mt-24">
+    <motion.footer 
+      className="bg-gradient-to-b from-white to-gray-50 dark:from-neutral-900 dark:to-neutral-950 py-16 mt-24 border-t border-gray-100 dark:border-gray-800"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={footerAnimation}
+    >
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-6 md:mb-0">
-            <Link href="/" className="font-bold text-xl text-primary">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
-                Swati
-              </span>
-            </Link>
-            <p className="text-gray-600 mt-2">Human Resource Partner</p>
-          </div>
+        <div className="flex flex-col md:flex-row justify-between items-start">
+          <div className="mb-8 md:mb-0">            
+            <Link href="/" className="font-bold text-2xl inline-block">
+              <motion.span 
+                className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.2 }}
+              >
+                Swati Singh
+              </motion.span>
+            </Link>            <p className="text-gray-600 dark:text-gray-400 mt-3 max-w-sm">HR Manager | Talent Acquisition | Training & Placement</p>
+            <motion.div 
+              className="flex items-center text-sm text-gray-500 dark:text-gray-400 mt-4"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+            >
+              Made with <FaHeart className="text-secondary mx-1" size={14} /> in India
+            </motion.div>
+          </div>          <motion.div 
+            className="flex flex-col md:flex-row md:space-x-16"
+            variants={staggerItems}
+          >
+            <motion.div variants={itemAnimation} className="mb-8 md:mb-0">              <h4 className="font-semibold text-gray-800 dark:text-gray-200 mb-4 text-lg">Quick Links</h4>
+              <motion.ul variants={staggerItems} className="space-y-3">
+                {[
+                  { name: 'Home', path: '/' },
+                  { name: 'About', path: '/about' },
+                  { name: 'Skills', path: '/skills' },
+                  { name: 'Work', path: '/work' },
+                  { name: 'Contact', path: '/contact' }
+                ].map((link) => (
+                  <motion.li key={link.name} variants={itemAnimation}>
+                    <Link 
+                      href={link.path} 
+                      className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-all duration-200 hover:pl-1"
+                    >
+                      {link.name}
+                    </Link>
+                  </motion.li>
+                ))}
+              </motion.ul>
+            </motion.div>
 
-          <div className="flex flex-col md:flex-row md:space-x-12">
-            <div className="mb-6 md:mb-0">
-              <h4 className="font-semibold text-gray-800 mb-3">Quick Links</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/" className="text-gray-600 hover:text-primary transition-colors duration-200">
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about" className="text-gray-600 hover:text-primary transition-colors duration-200">
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/skills" className="text-gray-600 hover:text-primary transition-colors duration-200">
-                    Skills
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/work" className="text-gray-600 hover:text-primary transition-colors duration-200">
-                    Work
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold text-gray-800 mb-3">Connect</h4>
+            <motion.div variants={itemAnimation}>              <h4 className="font-semibold text-gray-800 dark:text-gray-200 mb-4 text-lg">Connect</h4>
               <div className="flex space-x-4">
-                <a 
-                  href="https://linkedin.com" 
+                <motion.a 
+                  href="https://linkedin.com/in/swati-singh-36b2a1280" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="bg-white p-2 rounded-full shadow-sm hover:shadow-md transition-shadow duration-200"
+                  className="bg-white dark:bg-neutral-800 p-3 rounded-xl shadow-card hover:shadow-hover transition-all duration-300 border border-gray-100 dark:border-gray-700"
                   aria-label="LinkedIn"
+                  whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   <FaLinkedinIn className="text-primary w-5 h-5" />
-                </a>
-                <a 
-                  href="https://twitter.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="bg-white p-2 rounded-full shadow-sm hover:shadow-md transition-shadow duration-200"
-                  aria-label="Twitter"
+                </motion.a>
+                  <motion.a 
+                  href="tel:+919076646400"
+                  className="bg-white dark:bg-neutral-800 p-3 rounded-xl shadow-card hover:shadow-hover transition-all duration-300 border border-gray-100 dark:border-gray-700"
+                  aria-label="Phone"
+                  whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <FaTwitter className="text-primary w-5 h-5" />
-                </a>
-                <a 
-                  href="mailto:swati@example.com" 
-                  className="bg-white p-2 rounded-full shadow-sm hover:shadow-md transition-shadow duration-200"
+                  <svg xmlns="http://www.w3.org/2000/svg" className="text-primary w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M2.003 5.884L10.243 1.664C11.133 1.219 12.131 1 13.143 1H13.379C15.228 1 16.95 2.088 17.893 3.772L19.296 6.202C19.806 7.144 19.871 8.275 19.475 9.273C19.079 10.27 18.266 11.04 17.269 11.436C15.524 12.146 13.683 12.567 11.812 12.685C9.378 12.84 6.933 13.21 4.528 13.795C2.564 14.269 1.034 15.722 0.56 17.686C0.086 19.651 0.636 21.705 2.003 23.112V5.884Z" />
+                  </svg>
+                </motion.a>
+                
+                <motion.a 
+                  href="mailto:rajputswatisingh78@gmail.com" 
+                  className="bg-white dark:bg-neutral-800 p-3 rounded-xl shadow-card hover:shadow-hover transition-all duration-300 border border-gray-100 dark:border-gray-700"
                   aria-label="Email"
+                  whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   <FaEnvelope className="text-primary w-5 h-5" />
-                </a>
+                </motion.a>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
-
-        <div className="border-t border-gray-200 mt-10 pt-6 text-center">
-          <p className="text-gray-600 text-sm">
-            &copy; {currentYear} Swati. All rights reserved.
+          <motion.div 
+          className="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8 text-center"
+          variants={itemAnimation}
+        >          <p className="text-gray-600 dark:text-gray-400 text-sm">
+            &copy; {currentYear} Swati Singh. All rights reserved.
           </p>
-          <p className="text-gray-500 text-xs mt-1">
-            Designed with passion and purpose
+          <p className="text-gray-500 dark:text-gray-400 text-xs mt-2">
+            Phone: 90766 46400 | Email: rajputswatisingh78@gmail.com
           </p>
-        </div>
+        </motion.div>
       </div>
-    </footer>
+    </motion.footer>
   );
 };
 

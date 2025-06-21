@@ -1,72 +1,96 @@
 export const bio = {
-  name: "Swati",
-  title: "Human Resource Partner",
-  intro: "Hi, I'm Swati - Human Resource Partner",
-  description: "I'm a passionate HR professional with over 8 years of experience in the IT industry, specializing in talent acquisition, employee engagement, and creating positive workplace cultures.",
-  longDescription: "As an HR professional with extensive experience in the IT sector, I've developed a deep understanding of the unique challenges and opportunities in technology-driven workplaces. My approach combines strategic HR management with a genuine commitment to employee well-being and organizational growth. I believe in creating workplaces where people feel valued, supported, and motivated to perform at their best.",
+  name: "Swati Singh",
+  title: "HR Manager | Talent Acquisition | Training & Placement Expert",
+  intro: "Hi, I'm Swati Singh - HR Manager",
+  description: "I'm a dedicated and result-oriented HR professional with 2+ years of experience in recruitment, onboarding, training coordination, and student placement.",
+  longDescription: "As an HR professional specializing in talent acquisition and training, I excel at building partnerships with training institutes, mentoring students, and bridging the gap between education and employment. My approach combines strategic HR management with a genuine commitment to student and employee development. I believe in creating environments where talent is nurtured, guided, and successfully placed in the industry.",
   welcomeMessage: "Welcome to my professional portfolio",
+  contact: {
+    phone: "90766 46400",
+    email: "rajputswatisingh78@gmail.com",
+    linkedin: "linkedin.com/in/swati-singh-36b2a1280"
+  },
   values: [
     {
-      title: "Empathy",
-      description: "Understanding people's needs and perspectives is the foundation of effective HR"
+      title: "Student Development",
+      description: "Helping students bridge the gap between education and employment"
     },
     {
       title: "Integrity",
       description: "Maintaining confidentiality and ethical standards in all HR operations"
     },
     {
-      title: "Innovation",
-      description: "Constantly seeking new ways to improve HR processes and employee experience"
+      title: "Partnership Building",
+      description: "Creating strong relationships with training institutes and companies"
     },
     {
-      title: "Inclusivity",
-      description: "Creating environments where diversity is celebrated and everyone belongs"
+      title: "Effective Communication",
+      description: "Using public speaking and communication skills to connect people with opportunities"
     }
+  ],
+  coreSkills: [
+    "Recruitment & Interview Coordination",
+    "Summer Training & Internship Management",
+    "College/Institute Relations",
+    "Placement Coordination",
+    "HR Documentation & Compliance",
+    "Team & Relationship Management",
+    "Communication & Public Speaking"
   ],
   experience: [
     {
-      company: "TechSolutions Inc.",
-      role: "Senior HR Partner",
-      period: "2021 - Present",
-      description: "Leading HR initiatives for engineering departments, including talent acquisition, employee development, and culture building"
+      company: "Softflew Technologies",
+      role: "HR Manager",
+      period: "Apr 2025 - Present",
+      description: "Managing HR operations, training batches, and IT company collaborations. Supervising internships, placements, and student development programs."
     },
     {
-      company: "InnovateX",
-      role: "HR Business Partner",
-      period: "2018 - 2021",
-      description: "Implemented comprehensive onboarding programs and performance review systems for a rapidly growing tech startup"
+      company: "Fresh Duniya Manpower Services",
+      role: "HR Executive",
+      period: "Oct 2024 - May 2025",
+      description: "Coordinated virtual hiring processes and candidate engagement. Managed job portals, resumes, and interview pipelines while working from home."
     },
     {
-      company: "Global IT Solutions",
-      role: "Recruitment Specialist",
-      period: "2015 - 2018",
-      description: "Specialized in technical recruitment and developed strategies to attract top tech talent in a competitive market"
+      company: "Digicoders Technologies Pvt. Ltd.",
+      role: "HR Executive",
+      period: "Jan 2023 - Feb 2025",
+      description: "Streamlined recruitment operations, improved onboarding processes. Managed internal hiring, employee records, and team training."
     }
   ],
   education: [
     {
-      degree: "MBA in Human Resource Management",
-      institution: "University of Management Studies",
-      year: "2015"
+      degree: "MBA (HR)",
+      institution: "Integral University, Lucknow",
+      year: "Pursuing"
     },
     {
-      degree: "Bachelor's in Psychology",
-      institution: "National University",
-      year: "2013"
+      degree: "BCA",
+      institution: "VBSPU, Jaunpur",
+      year: "78.27%"
     }
   ],
   certifications: [
     {
-      name: "SHRM Senior Certified Professional (SHRM-SCP)",
+      name: "6-Month PHP Internship",
       year: "2022"
     },
     {
-      name: "Certified Diversity and Inclusion Practitioner",
-      year: "2020"
+      name: "3-Month CCC",
+      year: "2019"
     },
     {
-      name: "HR Analytics Professional",
-      year: "2019"
+      name: "Regular training and development workshops",
+      year: "ongoing"
     }
+  ],
+  achievements: [
+    "\"Excellent Service Award\" - Digicoders",
+    "Recognized for successful student placement drives",
+    "Organized tech seminars and career guidance sessions"
+  ],
+  portfolioHighlights: [
+    "Organized Summer Training 2025 for 150+ students",
+    "Coordinated with 10+ tech companies for live project support",
+    "Created student development plans, mock interviews & resume workshops"
   ]
 };

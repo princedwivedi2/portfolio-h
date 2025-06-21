@@ -1,71 +1,71 @@
 export const skills = {
   technical: [
     {
-      name: "Applicant Tracking Systems",
+      name: "HR Documentation",
+      level: 95,
+      description: "Expert in creating and maintaining HR documentation and compliance records"
+    },
+    {
+      name: "Job Portal Management",
       level: 90,
-      description: "Expert in various ATS platforms including Workday, Lever, and Greenhouse"
+      description: "Proficient in managing various job portals and recruitment platforms"
     },
     {
-      name: "HRIS Management",
+      name: "PHP (Technical Knowledge)",
+      level: 70,
+      description: "Basic technical knowledge from PHP internship, helpful for technical recruitment"
+    },
+    {
+      name: "Training Management Systems",
       level: 85,
-      description: "Proficient in managing HR Information Systems and optimizing data workflow"
+      description: "Experience with training management and student development platforms"
     },
     {
-      name: "HR Analytics",
-      level: 80,
-      description: "Skilled in collecting and analyzing HR metrics to drive strategic decisions"
-    },
-    {
-      name: "Performance Management Tools",
-      level: 85,
-      description: "Experience with various performance review and feedback systems"
-    },
-    {
-      name: "Compensation Planning Software",
-      level: 75,
-      description: "Knowledge of salary benchmarking and compensation management tools"
+      name: "Microsoft Office Suite",
+      level: 90,
+      description: "Advanced skills in Excel, Word, PowerPoint for HR documentation and reporting"
     }
   ],
   soft: [
     {
       name: "Recruitment & Selection",
       level: 95,
-      description: "Expertise in identifying, attracting, and hiring top talent"
+      description: "Expertise in identifying, attracting, and hiring talent for tech positions"
     },
     {
-      name: "Employee Onboarding",
+      name: "Summer Training Coordination",
       level: 90,
-      description: "Creating comprehensive onboarding experiences that improve retention"
+      description: "Organizing and managing comprehensive training programs for students"
     },
     {
-      name: "Conflict Resolution",
-      level: 85,
-      description: "Mediating workplace conflicts and building healthy team dynamics"
-    },
-    {
-      name: "Employee Engagement",
+      name: "Institute Relations",
       level: 90,
-      description: "Implementing strategies to boost morale and workplace satisfaction"
+      description: "Building strong partnerships with educational institutions for talent pipelines"
     },
     {
-      name: "Performance Reviews",
+      name: "Student Mentoring",
+      level: 95,
+      description: "Guiding students through career development and industry preparation"
+    },
+    {
+      name: "Public Speaking",
       level: 85,
-      description: "Designing and conducting effective performance evaluation processes"
+      description: "Delivering engaging presentations and workshops for career guidance"
     },
     {
       name: "Training & Development",
-      level: 80,
-      description: "Creating learning opportunities that align with organizational goals"
-    },
-    {
-      name: "Diversity & Inclusion",
       level: 85,
-      description: "Fostering inclusive workplaces and implementing DEI initiatives"
+      description: "Creating effective learning opportunities for students and employees"
     },
     {
-      name: "Talent Retention",
+      name: "Internship Management",
+      level: 95,
+      description: "Coordinating internship programs between companies and students"
+    },
+    {
+      name: "Placement Coordination",
       level: 90,
-      description: "Strategies for keeping valuable employees engaged and committed"
+      description: "Successfully matching student talent with industry opportunities"
     }
   ]
 };

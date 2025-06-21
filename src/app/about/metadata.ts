@@ -1,6 +1,11 @@
 import { Metadata } from 'next';
 
+// Import base URL from main metadata
+import { metadata as baseMetadata } from '../metadata';
+
 export const metadata: Metadata = {
-  title: 'About | Swati - HR Professional',
-  description: 'Learn about Swati\'s experience as an HR professional in the IT industry, her values, and career journey.',
+  title: 'About | Swati Singh - HR Manager',
+  description: 'Learn about Swati Singh\'s experience as an HR Manager specializing in recruitment, training coordination, and student placement.',
+  // Ensure metadata base is inherited from the parent
+  metadataBase: baseMetadata.metadataBase,
 };
