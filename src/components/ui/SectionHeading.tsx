@@ -14,11 +14,12 @@ const SectionHeading = ({
   centered = false, 
   style = 'gradient' 
 }: SectionHeadingProps) => {
-    // Define different title styles
+  
+  // Define different title styles
   const titleClasses = {
     gradient: "bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary",
-    underline: "text-gray-800 dark:text-gray-100 relative inline-block",
-    boxed: "text-gray-800 dark:text-gray-100"
+    underline: "text-gray-800 relative inline-block",
+    boxed: "text-gray-800"
   };
 
   return (

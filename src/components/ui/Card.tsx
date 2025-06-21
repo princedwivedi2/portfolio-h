@@ -33,7 +33,7 @@ const Card = ({
         ease: [0.22, 1, 0.36, 1]
       }}
       whileHover={hoverAnimations[hoverEffect]}
-      className={`bg-white/80 dark:bg-neutral-800/70 backdrop-blur-sm rounded-2xl shadow-card p-8 border border-gray-50 dark:border-gray-700 transition-all duration-300 ${className}`}
+      className={`bg-white/80 backdrop-blur-sm rounded-2xl shadow-card p-8 border border-gray-50 transition-all duration-300 ${className}`}
     >
       {children}
     </motion.div>

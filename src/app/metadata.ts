@@ -24,8 +24,7 @@ export const metadata: Metadata = {
   description: 'Personal portfolio of Swati Singh, a dedicated HR Manager specializing in talent acquisition, training coordination, and student placement.',
   keywords: ['HR Professional', 'HR Manager', 'Talent Acquisition', 'Training Coordination', 'Student Placement', 'Recruitment', 'Training & Development'],
   authors: [{ name: 'Swati Singh' }],
-  creator: 'Swati Singh',  
-  openGraph: {
+  creator: 'Swati Singh',  openGraph: {
     type: 'website',
     locale: 'en_US',
     siteName: 'Swati Singh - HR Professional Portfolio',
@@ -33,23 +32,23 @@ export const metadata: Metadata = {
     description: 'Personal portfolio of Swati Singh, a dedicated HR Manager specializing in talent acquisition, training coordination, and student placement.',
     images: [
       {
-        url: '/og-image.jpg',
+        url: '/images/profile-og.svg',
         width: 1200,
         height: 630,
         alt: 'Swati Singh - HR Professional'
       }
     ]
-  },
-  twitter: {
+  },  twitter: {
     card: 'summary_large_image',
     title: 'Swati Singh - HR Manager',
     description: 'Personal portfolio of Swati Singh, a dedicated HR Manager specializing in talent acquisition, training coordination, and student placement.',
-    images: ['/og-image.jpg'],
-    creator: '@swati'
-  },
-  verification: {
+    images: ['/images/profile-og.svg'],
+    creator: '@swatisingh' // Update with actual Twitter handle when available
+  },verification: {
+    // Uncomment and add real verification token when available
+    // google: 'your-google-verification-code',
     other: {
-      'google-site-verification': ['verification_token'] // Add actual verification tokens when available
+      // 'google-site-verification': ['your-actual-verification-token'] 
     }
   },
   robots: {

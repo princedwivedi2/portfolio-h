@@ -41,22 +41,24 @@ export default function Home() {
               >
                 {bio.welcomeMessage}
               </motion.span>
-                <motion.h1 
+              
+              <motion.h1 
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="text-4xl md:text-6xl font-bold text-gray-800 dark:text-gray-100 leading-tight"
+                className="text-4xl md:text-6xl font-bold text-gray-800 leading-tight"
               >
                 {bio.intro}
               </motion.h1>
-                <motion.p 
+              
+              <motion.p 
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl"
+                className="text-xl text-gray-600 leading-relaxed max-w-2xl"
               >
                 {bio.description}
-              </motion.p><motion.div 
+              </motion.p>              <motion.div 
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
@@ -70,9 +72,10 @@ export default function Home() {
                     Learn More <FaArrowRight className="w-4 h-4" />
                   </Link>
                 </motion.div>
-                <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>                  <Link 
+                <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+                  <Link 
                     href="/contact" 
-                    className="bg-white dark:bg-neutral-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 px-8 py-3 rounded-xl font-medium shadow-sm hover:shadow-md transition-all duration-300"
+                    className="bg-white border border-gray-200 text-gray-700 px-8 py-3 rounded-xl font-medium shadow-sm hover:shadow-md transition-all duration-300"
                   >
                     Get in Touch
                   </Link>
@@ -81,8 +84,10 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>      {/* Highlight Stats */}
-      <section className="py-16 bg-gray-50 dark:bg-neutral-800">
+      </section>
+
+      {/* Highlight Stats */}
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
@@ -102,7 +107,7 @@ export default function Home() {
                 <h3 className="text-4xl md:text-5xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary inline-block">
                   {stat.value}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300">{stat.label}</p>
+                <p className="text-gray-600">{stat.label}</p>
               </motion.div>
             ))}
           </div>

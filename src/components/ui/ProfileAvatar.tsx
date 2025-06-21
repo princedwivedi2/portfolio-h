@@ -74,8 +74,7 @@ const ProfileAvatar: React.FC<ProfileAvatarProps> = ({
             sizes={`${Math.max(width, height)}px`}
             className="object-cover"
             priority
-          />
-        ) : (
+          />        ) : (
           <div className={`w-full h-full ${style === 'gradient' ? 'bg-gradient-to-br from-primary to-secondary' : style === 'solid' ? 'bg-primary' : 'bg-gradient-to-r from-softPurple to-softPink'} rounded-full overflow-hidden flex items-center justify-center`}>
             <span className={`${textSize} text-white font-bold tracking-wider`}>S</span>
           </div>

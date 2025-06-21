@@ -15,7 +15,7 @@ const TestimonialCard = ({ quote, author, position, image, index }: TestimonialC
 
   return (
     <motion.div 
-      className="bg-white/80 dark:bg-neutral-800/70 backdrop-blur-sm rounded-2xl shadow-elegant p-8 border border-gray-50 dark:border-gray-700 relative"
+      className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-elegant p-8 border border-gray-50 relative"
       initial={{ opacity: 0, y: 30, scale: 0.95 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, margin: "-50px" }}
@@ -42,7 +42,7 @@ const TestimonialCard = ({ quote, author, position, image, index }: TestimonialC
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 + index * 0.1, duration: 0.5 }}
-        className="text-gray-600 dark:text-gray-300 mb-8 italic leading-relaxed pl-6 relative text-lg"
+        className="text-gray-600 mb-8 italic leading-relaxed pl-6 relative text-lg"
       >
         {quote}
       </motion.p>
@@ -58,8 +58,9 @@ const TestimonialCard = ({ quote, author, position, image, index }: TestimonialC
           <div className="w-full h-full bg-gradient-to-br from-softPurple to-softPink" />
         </div>
         
-        <div>          <h4 className="font-semibold text-gray-800 dark:text-white">{author}</h4>
-          <p className="text-sm text-gray-500 dark:text-gray-400">{position}</p>
+        <div>
+          <h4 className="font-semibold text-gray-800">{author}</h4>
+          <p className="text-sm text-gray-500">{position}</p>
         </div>
       </motion.div>
     </motion.div>

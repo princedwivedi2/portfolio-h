@@ -1,74 +1,78 @@
 'use client';
 
-import { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useContext } from 'react';
 
-// Create a context for theme management
-export const ThemeContext = createContext({
-  theme: 'light',
-  setTheme: (theme: string) => {},
-  toggleTheme: () => {},
+type Theme = 'light' | 'dark' | 'system';
+
+interface ThemeContextType {
+  theme: Theme;
+  setTheme: (theme: Theme) => void;
+}
+
+// Initialize with default values instead of undefined
+const ThemeContext = createContext<ThemeContextType>({
+  theme: 'system',
+  setTheme: () => null,
 });
 
-export default function ThemeProvider({ 
+export function useTheme() {
+  const context = useContext(ThemeContext);
+  return context;
+}
+
+export default function ThemeProvider({
   children,
-}: { 
-  children: React.ReactNode 
+}: {
+  children: React.ReactNode;
 }) {
-  const [theme, setTheme] = useState('light');
-
-  // Function to toggle theme
-  const toggleTheme = () => {
-    setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
-  };
-  // On mount, get the preferred theme
+  const [theme, setTheme] = useState<Theme>('system');
+  const [mounted, setMounted] = useState(false);
+  // On mount, read the preferred theme from localStorage
   useEffect(() => {
-    // Set the theme state to avoid hydration mismatch
-    setTheme('light'); // Default to light
-
-    // Defer getting the stored theme until after hydration
-    const getStoredTheme = () => {
-      try {
-        // Check if user has previously set theme
-        const storedTheme = localStorage.getItem('theme');
-        
-        // If the user has explicitly chosen a theme
-        if (storedTheme) {
-          setTheme(storedTheme);
-          return;
-        }
-        
-        // Otherwise check for system preference
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          setTheme('dark');
-        }
-      } catch (error) {
-        console.error('Error accessing localStorage:', error);
+    // Always wrap browser API access in try-catch for SSR
+    try {
+      const storedTheme = localStorage?.getItem('theme') as Theme | null;
+      if (storedTheme && ['light', 'dark', 'system'].includes(storedTheme)) {
+        setTheme(storedTheme);
       }
-    };
-
-    // Run after hydration
-    const timer = setTimeout(() => {
-      getStoredTheme();
-    }, 0);
-    
-    return () => clearTimeout(timer);
+    } catch (error) {
+      console.error('Error accessing localStorage:', error);
+    }
+    setMounted(true);
   }, []);
 
-  // Update the theme class and local storage when theme changes
+  // When the theme changes, update localStorage and document classes
   useEffect(() => {
-    const root = document.documentElement;
-    
-    if (theme === 'dark') {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
+    if (!mounted) return;
+
+    try {
+      localStorage?.setItem('theme', theme);
+      
+      // Set the data-theme attribute on the document element
+      const root = document.documentElement;
+      
+      if (theme === 'system') {
+        const systemTheme = window?.matchMedia?.('(prefers-color-scheme: dark)')?.matches ? 'dark' : 'light';
+        root.classList.remove('light', 'dark');
+        root.classList.add(systemTheme);
+        root.dataset.theme = systemTheme;
+      } else {
+        root.classList.remove('light', 'dark');
+        root.classList.add(theme);
+        root.dataset.theme = theme;
+      }
+    } catch (error) {
+      console.error('Error updating theme:', error);
     }
-    
-    localStorage.setItem('theme', theme);
-  }, [theme]);
+  }, [theme, mounted]);
+
+  // Avoid rendering anything until mounted to prevent hydration errors
+  if (!mounted) {
+    return <>{children}</>;
+  }
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
       {children}
     </ThemeContext.Provider>
   );

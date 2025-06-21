@@ -28,13 +28,14 @@ const SkillBar = ({ name, level, description, index }: SkillBarProps) => {
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ delay: index * 0.15 + 0.1, duration: 0.5 }}
-      >        <h3 className="text-lg font-medium text-gray-800 dark:text-gray-100">{name}</h3>
+      >
+        <h3 className="text-lg font-medium text-gray-800">{name}</h3>
         <span className="text-sm font-semibold py-1 px-3 bg-gradient-to-r from-primary/10 to-secondary/10 text-primary rounded-full shadow-sm border border-primary/5">
           {level}%
         </span>
       </motion.div>
       
-      <div className="h-3 w-full bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden shadow-inner">
+      <div className="h-3 w-full bg-gray-100 rounded-full overflow-hidden shadow-inner">
         <motion.div 
           className="h-full bg-gradient-to-r from-primary via-secondary to-primary bg-size-200 animate-gradient"
           style={{ 

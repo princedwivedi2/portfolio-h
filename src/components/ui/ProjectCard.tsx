@@ -12,7 +12,7 @@ interface ProjectCardProps {
 const ProjectCard = ({ title, description, achievements, year, index }: ProjectCardProps) => {
   return (
     <motion.div 
-      className="bg-white/80 dark:bg-neutral-800/70 backdrop-blur-sm rounded-2xl shadow-card overflow-hidden border border-gray-100 dark:border-gray-700"
+      className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-card overflow-hidden border border-gray-100"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
@@ -33,12 +33,13 @@ const ProjectCard = ({ title, description, achievements, year, index }: ProjectC
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.1 + index * 0.1 }}
-        >          <h3 className="text-xl font-semibold text-gray-800 dark:text-white">{title}</h3>
+        >
+          <h3 className="text-xl font-semibold text-gray-800">{title}</h3>
           <span className="text-sm font-medium py-1 px-4 bg-gradient-to-r from-primary/10 to-secondary/10 text-primary rounded-full shadow-sm">{year}</span>
         </motion.div>
         
         <motion.p 
-          className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed"
+          className="text-gray-600 mb-6 leading-relaxed"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 + index * 0.1 }}

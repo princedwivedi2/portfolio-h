@@ -31,9 +31,10 @@ const Footer = () => {
     hidden: { opacity: 0, y: 10 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
   };
+
   return (
     <motion.footer 
-      className="bg-gradient-to-b from-white to-gray-50 dark:from-neutral-900 dark:to-neutral-950 py-16 mt-24 border-t border-gray-100 dark:border-gray-800"
+      className="bg-gradient-to-b from-white to-gray-50 py-16 mt-24 border-t border-gray-100"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
@@ -50,9 +51,10 @@ const Footer = () => {
               >
                 Swati Singh
               </motion.span>
-            </Link>            <p className="text-gray-600 dark:text-gray-400 mt-3 max-w-sm">HR Manager | Talent Acquisition | Training & Placement</p>
+            </Link>
+            <p className="text-gray-600 mt-3 max-w-sm">HR Manager | Talent Acquisition | Training & Placement</p>
             <motion.div 
-              className="flex items-center text-sm text-gray-500 dark:text-gray-400 mt-4"
+              className="flex items-center text-sm text-gray-500 mt-4"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
@@ -63,7 +65,8 @@ const Footer = () => {
             className="flex flex-col md:flex-row md:space-x-16"
             variants={staggerItems}
           >
-            <motion.div variants={itemAnimation} className="mb-8 md:mb-0">              <h4 className="font-semibold text-gray-800 dark:text-gray-200 mb-4 text-lg">Quick Links</h4>
+            <motion.div variants={itemAnimation} className="mb-8 md:mb-0">
+              <h4 className="font-semibold text-gray-800 mb-4 text-lg">Quick Links</h4>
               <motion.ul variants={staggerItems} className="space-y-3">
                 {[
                   { name: 'Home', path: '/' },
@@ -75,7 +78,7 @@ const Footer = () => {
                   <motion.li key={link.name} variants={itemAnimation}>
                     <Link 
                       href={link.path} 
-                      className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-all duration-200 hover:pl-1"
+                      className="text-gray-600 hover:text-primary transition-all duration-200 hover:pl-1"
                     >
                       {link.name}
                     </Link>
@@ -84,22 +87,24 @@ const Footer = () => {
               </motion.ul>
             </motion.div>
 
-            <motion.div variants={itemAnimation}>              <h4 className="font-semibold text-gray-800 dark:text-gray-200 mb-4 text-lg">Connect</h4>
+            <motion.div variants={itemAnimation}>
+              <h4 className="font-semibold text-gray-800 mb-4 text-lg">Connect</h4>
               <div className="flex space-x-4">
                 <motion.a 
                   href="https://linkedin.com/in/swati-singh-36b2a1280" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="bg-white dark:bg-neutral-800 p-3 rounded-xl shadow-card hover:shadow-hover transition-all duration-300 border border-gray-100 dark:border-gray-700"
+                  className="bg-white p-3 rounded-xl shadow-card hover:shadow-hover transition-all duration-300 border border-gray-100"
                   aria-label="LinkedIn"
                   whileHover={{ y: -4, transition: { duration: 0.2 } }}
                   whileTap={{ scale: 0.95 }}
                 >
                   <FaLinkedinIn className="text-primary w-5 h-5" />
                 </motion.a>
-                  <motion.a 
+                
+                <motion.a 
                   href="tel:+919076646400"
-                  className="bg-white dark:bg-neutral-800 p-3 rounded-xl shadow-card hover:shadow-hover transition-all duration-300 border border-gray-100 dark:border-gray-700"
+                  className="bg-white p-3 rounded-xl shadow-card hover:shadow-hover transition-all duration-300 border border-gray-100"
                   aria-label="Phone"
                   whileHover={{ y: -4, transition: { duration: 0.2 } }}
                   whileTap={{ scale: 0.95 }}
@@ -111,7 +116,7 @@ const Footer = () => {
                 
                 <motion.a 
                   href="mailto:rajputswatisingh78@gmail.com" 
-                  className="bg-white dark:bg-neutral-800 p-3 rounded-xl shadow-card hover:shadow-hover transition-all duration-300 border border-gray-100 dark:border-gray-700"
+                  className="bg-white p-3 rounded-xl shadow-card hover:shadow-hover transition-all duration-300 border border-gray-100"
                   aria-label="Email"
                   whileHover={{ y: -4, transition: { duration: 0.2 } }}
                   whileTap={{ scale: 0.95 }}
@@ -122,13 +127,15 @@ const Footer = () => {
             </motion.div>
           </motion.div>
         </div>
-          <motion.div 
-          className="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8 text-center"
+        
+        <motion.div 
+          className="border-t border-gray-200 mt-12 pt-8 text-center"
           variants={itemAnimation}
-        >          <p className="text-gray-600 dark:text-gray-400 text-sm">
+        >
+          <p className="text-gray-600 text-sm">
             &copy; {currentYear} Swati Singh. All rights reserved.
           </p>
-          <p className="text-gray-500 dark:text-gray-400 text-xs mt-2">
+          <p className="text-gray-500 text-xs mt-2">
             Phone: 90766 46400 | Email: rajputswatisingh78@gmail.com
           </p>
         </motion.div>
