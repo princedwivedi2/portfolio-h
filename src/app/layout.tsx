@@ -5,6 +5,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import MainLayout from '@/components/layout/MainLayout';
 import ThemeProvider from '@/components/layout/ThemeProvider';
+import { Analytics } from "@vercel/analytics/next"
 
 // Use the shared metadata and override specific fields
 export const metadata: Metadata = {
