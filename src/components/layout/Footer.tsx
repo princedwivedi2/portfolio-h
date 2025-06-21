@@ -1,9 +1,9 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
 import { FaLinkedinIn, FaEnvelope, FaHeart } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import { scrollToSection } from '@/utils/scrollUtils';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -41,8 +41,7 @@ const Footer = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-start">
-          <div className="mb-8 md:mb-0">            
-            <Link href="/" className="font-bold text-2xl inline-block">
+          <div className="mb-8 md:mb-0">              <button onClick={() => scrollToSection('home')} className="font-bold text-2xl inline-block bg-transparent border-none p-0 cursor-pointer">
               <motion.span 
                 className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary"
                 whileHover={{ scale: 1.05 }}
@@ -50,7 +49,7 @@ const Footer = () => {
               >
                 Swati Singh
               </motion.span>
-            </Link>
+            </button>
             <p className="text-gray-600 mt-3 max-w-sm">HR Manager | Talent Acquisition | Training & Placement</p>
             <motion.div 
               className="flex items-center text-sm text-gray-500 mt-4"
@@ -66,21 +65,20 @@ const Footer = () => {
           >
             <motion.div variants={itemAnimation} className="mb-8 md:mb-0">
               <h4 className="font-semibold text-gray-800 mb-4 text-lg">Quick Links</h4>
-              <motion.ul variants={staggerItems} className="space-y-3">
-                {[
-                  { name: 'Home', path: '/' },
-                  { name: 'About', path: '/about' },
-                  { name: 'Skills', path: '/skills' },
-                  { name: 'Work', path: '/work' },
-                  { name: 'Contact', path: '/contact' }
+              <motion.ul variants={staggerItems} className="space-y-3">                {[
+                  { name: 'Home', path: '#home' },
+                  { name: 'About', path: '#about' },
+                  { name: 'Skills', path: '#skills' },
+                  { name: 'Work', path: '#work' },
+                  { name: 'Contact', path: '#contact' }
                 ].map((link) => (
                   <motion.li key={link.name} variants={itemAnimation}>
-                    <Link 
+                    <a
                       href={link.path} 
                       className="text-gray-600 hover:text-primary transition-all duration-200 hover:pl-1"
                     >
                       {link.name}
-                    </Link>
+                    </a>
                   </motion.li>
                 ))}
               </motion.ul>

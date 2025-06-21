@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import BackToTop from '../ui/BackToTop';
 
 interface MainLayoutProps {
   children: React.ReactNode;
@@ -19,6 +20,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
         className="w-full"
       >
         {children}
+        <BackToTop />
       </motion.div>
     </AnimatePresence>
   );

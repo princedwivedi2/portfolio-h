@@ -1,6 +1,9 @@
-import React from 'react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaQuoteLeft } from 'react-icons/fa';
+import SkeletonLoader from './SkeletonLoader';
 
 interface TestimonialCardProps {
   quote: string;
@@ -11,6 +14,20 @@ interface TestimonialCardProps {
 }
 
 const TestimonialCard = ({ quote, author, position, index }: TestimonialCardProps) => {
+  const [isLoading, setIsLoading] = useState(true);
+  
+  // Simulate loading state
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000 + Math.random() * 1000); // Random time between 1000-2000ms for staggered effect
+    
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <SkeletonLoader type="testimonial" />;
+  }
 
   return (
     <motion.div 

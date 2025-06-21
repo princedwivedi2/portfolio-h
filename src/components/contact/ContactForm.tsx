@@ -3,6 +3,12 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
+type FormErrors = {
+  name?: string;
+  email?: string;
+  message?: string;
+};
+
 const ContactForm = () => {
   // Form state
   const [formData, setFormData] = useState({
@@ -11,6 +17,9 @@ const ContactForm = () => {
     subject: '',
     message: '',
   });
+
+  // Form errors
+  const [errors, setErrors] = useState<FormErrors>({});
 
   // Form submission state
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -31,11 +40,48 @@ const ContactForm = () => {
       ...prev,
       [id]: value,
     }));
+    
+    // Clear error when user starts typing
+    if (errors[id as keyof FormErrors]) {
+      setErrors({
+        ...errors,
+        [id]: undefined
+      });
+    }
+  };
+
+  // Validate form
+  const validateForm = (): boolean => {
+    const newErrors: FormErrors = {};
+    
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required';
+    }
+    
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+      newErrors.email = 'Valid email is required';
+    }
+    
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required';
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = 'Message must be at least 10 characters';
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
   // Handle form submission
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    
+    if (!validateForm()) {
+      return;
+    }
+    
     setIsSubmitting(true);
     setSubmitStatus({ type: null, message: null });
 
@@ -56,7 +102,13 @@ const ContactForm = () => {
       setSubmitStatus({
         type: 'success',
         message: 'Thank you! Your message has been sent successfully.',
-      });    } catch (err) {
+      });
+      
+      // Clear success message after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus({ type: null, message: null });
+      }, 5000);
+    } catch (err) {
       // Show error message
       setSubmitStatus({
         type: 'error',
@@ -81,7 +133,9 @@ const ContactForm = () => {
 
         {/* Status message */}
         {submitStatus.message && (
-          <div 
+          <motion.div 
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
             className={`mb-6 p-4 rounded-md ${
               submitStatus.type === 'success'
                 ? 'bg-green-50 text-green-800 border border-green-200'
@@ -89,39 +143,47 @@ const ContactForm = () => {
             }`}
           >
             {submitStatus.message}
-          </div>
+          </motion.div>
         )}
 
         <div className="mb-6">
           <label htmlFor="name" className="block text-gray-700 mb-2">
-            Your Name
+            Your Name <span className="text-red-500">*</span>
           </label>
           <input
             type="text"
             id="name"
-            className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50"
+            className={`w-full px-4 py-3 rounded-md border ${
+              errors.name ? 'border-red-400 bg-red-50' : 'border-gray-300'
+            } focus:outline-none focus:ring-2 focus:ring-primary/50`}
             placeholder="John Doe"
-            required
             value={formData.name}
             onChange={handleChange}
             disabled={isSubmitting}
           />
+          {errors.name && (
+            <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+          )}
         </div>
 
         <div className="mb-6">
           <label htmlFor="email" className="block text-gray-700 mb-2">
-            Email Address
+            Email Address <span className="text-red-500">*</span>
           </label>
           <input
             type="email"
             id="email"
-            className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50"
+            className={`w-full px-4 py-3 rounded-md border ${
+              errors.email ? 'border-red-400 bg-red-50' : 'border-gray-300'
+            } focus:outline-none focus:ring-2 focus:ring-primary/50`}
             placeholder="john@example.com"
-            required
             value={formData.email}
             onChange={handleChange}
             disabled={isSubmitting}
           />
+          {errors.email && (
+            <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+          )}
         </div>
 
         <div className="mb-6">
@@ -141,17 +203,21 @@ const ContactForm = () => {
 
         <div className="mb-6">
           <label htmlFor="message" className="block text-gray-700 mb-2">
-            Message
+            Message <span className="text-red-500">*</span>
           </label>
           <textarea
             id="message"
-            className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 h-36"
+            className={`w-full px-4 py-3 rounded-md border ${
+              errors.message ? 'border-red-400 bg-red-50' : 'border-gray-300'
+            } focus:outline-none focus:ring-2 focus:ring-primary/50 h-36`}
             placeholder="Your message here..."
-            required
             value={formData.message}
             onChange={handleChange}
             disabled={isSubmitting}
           ></textarea>
+          {errors.message && (
+            <p className="text-red-500 text-sm mt-1">{errors.message}</p>
+          )}
         </div>
 
         <button
@@ -163,8 +229,20 @@ const ContactForm = () => {
           }`}
           disabled={isSubmitting}
         >
-          {isSubmitting ? 'Sending...' : 'Send Message'}
+          {isSubmitting ? (
+            <div className="flex items-center justify-center">
+              <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+              Sending...
+            </div>
+          ) : 'Send Message'}
         </button>
+        
+        <p className="mt-4 text-gray-500 text-sm text-center">
+          <span className="text-red-500">*</span> Required fields
+        </p>
       </form>
     </motion.div>
   );

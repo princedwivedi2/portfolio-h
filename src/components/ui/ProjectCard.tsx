@@ -1,5 +1,8 @@
-import React from 'react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import SkeletonLoader from './SkeletonLoader';
 
 interface ProjectCardProps {
   title: string;
@@ -10,6 +13,21 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ title, description, achievements, year, index }: ProjectCardProps) => {
+  const [isLoading, setIsLoading] = useState(true);
+  
+  // Simulate loading state
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 800 + Math.random() * 1000); // Random time between 800-1800ms for staggered effect
+    
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <SkeletonLoader type="project" />;
+  }
+
   return (
     <motion.div 
       className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-card overflow-hidden border border-gray-100"

@@ -1,5 +1,8 @@
-import React from 'react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import SkeletonLoader from './SkeletonLoader';
 
 interface SkillBarProps {
   name: string;
@@ -9,6 +12,21 @@ interface SkillBarProps {
 }
 
 const SkillBar = ({ name, level, description, index }: SkillBarProps) => {
+  const [isLoading, setIsLoading] = useState(true);
+  
+  // Simulate loading state with a staggered effect
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 400 + (index * 150)); // Staggered loading effect
+    
+    return () => clearTimeout(timer);
+  }, [index]);
+
+  if (isLoading) {
+    return <SkeletonLoader type="skill" />;
+  }
+
   return (
     <motion.div 
       className="mb-8 transform"

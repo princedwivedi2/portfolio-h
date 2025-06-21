@@ -24,14 +24,6 @@ const ProfileAvatar: React.FC<ProfileAvatarProps> = ({
     lg: { width: 220, height: 220, textSize: 'text-5xl', borderWidth: 'border-4' },
     xl: { width: 320, height: 320, textSize: 'text-7xl', borderWidth: 'border-4' },
   };
-  // Style classes are defined directly inline where used
-  /* Previously used styleClasses object:
-  const styleClasses = {
-    gradient: "bg-gradient-to-br from-primary to-secondary border-white",
-    solid: "bg-primary border-white",
-    glow: "bg-white border-primary/30"
-  };
-  */
 
   const { width, height, textSize, borderWidth } = dimensions[size];
 
@@ -62,25 +54,18 @@ const ProfileAvatar: React.FC<ProfileAvatarProps> = ({
       
       {showBackground && style === 'glow' && (
         <div className="absolute -inset-6 bg-primary rounded-full opacity-20 blur-2xl animate-pulse" />
-      )}      <motion.div 
+      )}
+      
+      <motion.div 
         className={`absolute inset-0 overflow-hidden rounded-full ${borderWidth} shadow-lg border-white`}
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.2, duration: 0.6 }}
       >
-        {imageUrl ? (
-          <Image
-            src={imageUrl}
-            alt="Profile"
-            fill
-            sizes={`${Math.max(width, height)}px`}
-            className="object-cover"
-            priority
-          />        ) : (
-          <div className={`w-full h-full ${style === 'gradient' ? 'bg-gradient-to-br from-primary to-secondary' : style === 'solid' ? 'bg-primary' : 'bg-gradient-to-r from-softPurple to-softPink'} rounded-full overflow-hidden flex items-center justify-center`}>
-            <span className={`${textSize} text-white font-bold tracking-wider`}>S</span>
-          </div>
-        )}
+        {/* Always use the fallback text and gradient since we don't have the actual image */}
+        <div className={`w-full h-full ${style === 'gradient' ? 'bg-gradient-to-br from-primary to-secondary' : style === 'solid' ? 'bg-primary' : 'bg-gradient-to-r from-softPurple to-softPink'} rounded-full overflow-hidden flex items-center justify-center`}>
+          <span className={`${textSize} text-white font-bold tracking-wider`}>S</span>
+        </div>
       </motion.div>
 
       {/* Decorative dots */}

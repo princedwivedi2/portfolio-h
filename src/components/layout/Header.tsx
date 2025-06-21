@@ -3,17 +3,17 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
+import { scrollToSection } from '@/utils/scrollUtils';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const navItems = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Skills', path: '/skills' },
-    { name: 'Work', path: '/work' },
-    { name: 'Testimonials', path: '/testimonials' },
-    { name: 'Contact', path: '/contact' },
+    { name: 'Home', path: '#home' },
+    { name: 'About', path: '#about' },
+    { name: 'Skills', path: '#skills' },
+    { name: 'Work', path: '#work' },
+    { name: 'Testimonials', path: '#testimonials' },
+    { name: 'Contact', path: '#contact' },
   ];
 
   // Toggle menu
@@ -27,8 +27,10 @@ const Header = () => {
   };
 
   return (    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-elegant py-5">
-      <div className="container mx-auto px-4 flex justify-between items-center">        
-        <Link href="/" className="font-bold text-2xl">
+      <div className="container mx-auto px-4 flex justify-between items-center">        <button 
+          onClick={() => scrollToSection('home')} 
+          className="font-bold text-2xl bg-transparent border-none p-0 cursor-pointer"
+        >
           <motion.span 
             initial={{ opacity: 0, x: -20 }} 
             animate={{ opacity: 1, x: 0 }} 
@@ -37,7 +39,7 @@ const Header = () => {
           >
             Swati Singh
           </motion.span>
-        </Link>
+        </button>
         
         {/* Desktop Navigation */}
         <nav className="hidden md:block">
@@ -50,13 +52,12 @@ const Header = () => {
                 transition={{ delay: 0.1 * i, duration: 0.5 }}
                 whileHover={{ y: -3, scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-              >
-                <Link 
-                  href={item.path} 
+              >                <button 
+                  onClick={() => scrollToSection(item.path.replace('#', ''))}
                   className="text-gray-600 hover:text-primary font-medium transition-colors duration-200 px-3 py-2 rounded-lg hover:bg-gray-50"
                 >
                   {item.name}
-                </Link>
+                </button>
               </motion.li>
             ))}
           </ul>
@@ -108,14 +109,15 @@ const Header = () => {
             <nav className="container mx-auto py-4 px-4">
               <ul className="flex flex-col space-y-4">
                 {navItems.map((item) => (
-                  <li key={item.name}>
-                    <Link 
-                      href={item.path} 
-                      className="text-gray-600 hover:text-primary font-medium transition-colors duration-200 block py-2"
-                      onClick={closeMenu}
+                  <li key={item.name}>                    <button 
+                      className="text-gray-600 hover:text-primary font-medium transition-colors duration-200 block py-2 w-full text-left"
+                      onClick={() => {
+                        closeMenu();
+                        scrollToSection(item.path.replace('#', ''));
+                      }}
                     >
                       {item.name}
-                    </Link>
+                    </button>
                   </li>
                 ))}
               </ul>

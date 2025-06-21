@@ -1,9 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 
 // Define a base URL for metadata
-const baseUrl = process.env.NODE_ENV === 'production' 
-  ? 'https://swati-portfolio.com' 
-  : 'http://localhost:3000';
+const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
 
 // Viewport export for theme color and other viewport settings
 export const viewport: Viewport = {
@@ -24,7 +22,8 @@ export const metadata: Metadata = {
   description: 'Personal portfolio of Swati Singh, a dedicated HR Manager specializing in talent acquisition, training coordination, and student placement.',
   keywords: ['HR Professional', 'HR Manager', 'Talent Acquisition', 'Training Coordination', 'Student Placement', 'Recruitment', 'Training & Development'],
   authors: [{ name: 'Swati Singh' }],
-  creator: 'Swati Singh',  openGraph: {
+  creator: 'Swati Singh',
+  openGraph: {
     type: 'website',
     locale: 'en_US',
     siteName: 'Swati Singh - HR Professional Portfolio',
@@ -38,13 +37,15 @@ export const metadata: Metadata = {
         alt: 'Swati Singh - HR Professional'
       }
     ]
-  },  twitter: {
+  },
+  twitter: {
     card: 'summary_large_image',
     title: 'Swati Singh - HR Manager',
     description: 'Personal portfolio of Swati Singh, a dedicated HR Manager specializing in talent acquisition, training coordination, and student placement.',
     images: ['/images/profile-og.svg'],
     creator: '@swatisingh' // Update with actual Twitter handle when available
-  },verification: {
+  },
+  verification: {
     // Uncomment and add real verification token when available
     // google: 'your-google-verification-code',
     other: {

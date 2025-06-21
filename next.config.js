@@ -8,6 +8,10 @@ const nextConfig = {
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
+  // Configure images
+  images: {
+    domains: ['localhost'],
+  },
 };
 
 module.exports = nextConfig;
